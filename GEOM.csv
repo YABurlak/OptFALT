@@ -1,11 +1,11 @@
-NAME, VALUE
-wing_area, 0.25
-ba, 0.2
+NAME,VALUE
+wing_area,0.25
+ba,0.2
 wingspan,1
-AR, 1
-keel_area, 1
-aft_area, 1
-wingspan, 1
-l_stab, 1
-Vdihedral, 45
-Vtail_area, 1
+AR,1
+keel_area,1
+aft_area,1
+wingspan,1
+l_stab,1
+Vdihedral,45
+Vtail_area,1

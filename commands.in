@@ -2,7 +2,7 @@ load D:\YURA\Aerokitties\OptFALT\SD7037.dat
 SD7037
     panel
     oper
-    visc 999999.9999999999
+    visc 866666.6666666665
     M 0.0
     type 1
     vpar
@@ -13,7 +13,7 @@ SD7037
     pacc
 D:\YURA\Aerokitties\OptFALT\polar.dat
     
-    cl 0.057180327868852465
+    cl 0.07612765544669707
     
     
     quit
