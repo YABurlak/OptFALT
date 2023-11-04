@@ -4,7 +4,7 @@ density,1.22
 g,9.81
 Re,2.5e+5
 M,0.0
-it,1000
+xfoil_max_it,1000
 ncr,9
 alpha_min,-3
 alpha_max,13
