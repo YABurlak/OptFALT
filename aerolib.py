@@ -1,4 +1,5 @@
 from math import pi
+import math
 
 def Re(V, l, nu = 1.5 * 10 ** (-5)):
     return int(V * l / nu)
@@ -15,7 +16,7 @@ def wing_area(TOM, g, Density, take_off_speed, CL_take_off):
 def CL_cruise(TOM, cruise_speed, wing_area, g, Density):
     return 2 * TOM * g / (Density * cruise_speed ** 2 * wing_area)
 
-def wingspan (Ar, wing_area):
+def wingspan (AR, wing_area):
     return (AR * wing_area) ** 2
 
 def ba(AR, wing_area):
@@ -24,11 +25,11 @@ def ba(AR, wing_area):
 def aft_area(A_aft, wing_area, ba, l_stab):
     return A_aft * wing_area * ba / l_stab
 
-def keel_area(B_keel, wing_area, wingspan, l_stab):
+def keel_area(B_keel, wing_area, wing_span, l_stab):
     return B_keel * wing_area * wing_span / l_stab
 
 def gamma(keel_area, aft_area):
-    return math.arctan((keel_area / aft_area) ** 0.5)
+    return math.atan((keel_area / aft_area) ** 0.5)
 
 def stab_area(aft_area, gamma):
     return aft_area / (math.cos(gamma)) ** 2
