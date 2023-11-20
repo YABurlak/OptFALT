@@ -11,7 +11,7 @@ mVTX,2,0.024,
 nVTX,2,1,
 mCrossfire,3,0.005,
 nCrossfire,3,1,
-mRunc_s4,4,0.01,
+mRunc_s4,4,0.01
 nRunc_s4,4,1,
 #Силовая установка
 mReg,5,0.025,
@@ -39,17 +39,17 @@ ltube5X4,,0,
 ltube8X7,,0,
 ltube6X5,,0,
 ltube8X6,,0,
-specific_wing,,1.05,wing_area
-specific_aft,,1.05,Vtail_area
+specific_wing,,,
+specific_aft,,,
 mfus,,,
 #Cервы+провода
 mMG90,9,0.015,
 nMG90,9,0,
 mES9051,10,0.006,
 nES9051,10,4,
-specific_3wire,,0.0095,
+specific_3wire,,0.0095
 #Мозги+датчики
-mPixhawk,11,0.0.048,
-nPixhawk,11,1,
+mPixhawk,11,,
+nPixhawk,11,,
 mPito,12,,
 nPito,12,0,
