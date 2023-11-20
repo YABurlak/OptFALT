@@ -41,7 +41,8 @@ ltube6X5,,0,
 ltube8X6,,0,
 specific_wing,,1.05,wing_area
 specific_aft,,1.05,Vtail_area
-mfus,,,
+mfus,13,0.15,
+nfus,13,1,
 #Cервы+провода
 mMG90,9,0.015,
 nMG90,9,0,
@@ -49,7 +50,7 @@ mES9051,10,0.006,
 nES9051,10,4,
 specific_3wire,,0.0095,
 #Мозги+датчики
-mPixhawk,11,0.0.048,
+mPixhawk,11,0.048,
 nPixhawk,11,1,
 mPito,12,,
 nPito,12,0,
