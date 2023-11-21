@@ -48,7 +48,7 @@ mMG90,9,0.015,
 nMG90,9,0,
 mES9051,10,0.006,
 nES9051,10,4,
-specific_3wire,,0.0095,
+specific_3wire,,0.0095,wire_length
 #Мозги+датчики
 mPixhawk,11,0.048,
 nPixhawk,11,1,

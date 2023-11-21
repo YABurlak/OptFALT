@@ -74,4 +74,4 @@ def AR_selector(ar_range, geom, settings, performance, tom):
         except XFoilException as e:
             print(e)
 
-        return df.iloc[df.K.argmax()].AR    
+    return df.iloc[df.K.argmax()].AR    
