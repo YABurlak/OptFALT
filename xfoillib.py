@@ -28,7 +28,7 @@ def XFoil_command_CL(V, AR, Sw, m, nu, M, ncr, xfoil_max_it, XFoil_path, work_pa
     \n\
     \n\
     quit\n')
-    print(str(Re(V, ba(AR, Sw), nu)))
+    #print(str(Re(V, ba(AR, Sw), nu)))
     command_file.close()
     return 0
 
@@ -69,7 +69,7 @@ def AR_selector(ar_range, geom, settings, performance, tom):
     for ar in ar_range:
         try:
             p = K_V_solver(geom, settings, float(performance['cruise_speed']), ar, tom)
-            print(p)
+            #print(p)
             df = pd.concat([df, p], ignore_index=True, sort=False)
         except XFoilException as e:
             print(e)

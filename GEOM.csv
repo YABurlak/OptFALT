@@ -1,11 +1,12 @@
-NAME,VALUE
-wing_area,0.1
-ba,0.2
-wingspan,1
-AR,7
-keel_area,1
-aft_area,1
-wingspan,1
-l_stab,1
-Vdihedral,45
-Vtail_area,0.02
+NAME, VALUE
+wing_area, 0.10103664135198488
+AR, 4.0
+ba, 0.15893130697882094
+wingspan, 0.16333444633103394
+aft_area, 0.02141051395042846
+keel_area, 0.0013752303228644752
+V_dihedral, 14.221565318263472
+Vtail_area, 0.022785744273292937
+Pcruise, 0    0.554979
+Name: K, dtype: float64
+wire_length, 1.641667223165517
