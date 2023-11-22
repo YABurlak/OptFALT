@@ -48,7 +48,7 @@ def calc_foil_perimeter(filename):
     P = 0
     for i in range(0, len(dots)):
         i = i%len(dots)
-        try:
+        try: 
             x_, y_ = list(map(lambda x: float(x), dots[i-1].split()))
             x, y = list(map(lambda x: float(x), dots[i].split()))
         except Exception:
