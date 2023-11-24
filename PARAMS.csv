@@ -39,7 +39,8 @@ ltube5X4,,0,
 ltube8X7,,0,
 ltube6X5,,0,
 ltube8X6,,0,
-specific_wing,,1.05,wing_area
+specific_wing,14,0.6,foil1_perimeter,ba,wingspan
+skin_thickness,14,0.0004,
 specific_aft,,1.05,Vtail_area
 mfus,13,0.15,
 nfus,13,1,
