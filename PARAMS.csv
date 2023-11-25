@@ -39,7 +39,7 @@ ltube5X4,,0,
 ltube8X7,,0,
 ltube6X5,,0,
 ltube8X6,,0,
-specific_wing,14,0.6,foil1_perimeter,ba,wingspan
+specific_wing,14,0.6,foil1_perimeter;ba;wingspan
 skin_thickness,14,0.0004,
 specific_aft,,1.05,Vtail_area
 mfus,13,0.15,
@@ -55,3 +55,4 @@ mPixhawk,11,0.048,
 nPixhawk,11,1,
 mPito,12,,
 nPito,12,0,
+test_param,,1,V_dihedral;wing_area
