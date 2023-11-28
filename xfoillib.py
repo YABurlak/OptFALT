@@ -12,6 +12,9 @@ def XFoil_command_CL(V, AR, Sw, m, nu, M, ncr, xfoil_max_it, XFoil_path, work_pa
     command_file=open(work_path + 'commands.in','w')
     command_file.write('load ' + work_path + foil_name + '.dat'+'\n'\
     + foil_name + '\n\
+    plop\n\
+    g f\n\
+    \n\
     panel\n\
     oper\n\
     visc ' + str(Re(V, ba(AR, Sw), nu)) + '\n\
