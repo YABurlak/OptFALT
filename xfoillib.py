@@ -12,7 +12,9 @@ def XFoil_command_CL(V, AR, Sw, m, nu, M, ncr, xfoil_max_it, XFoil_path, work_pa
     command_file=open(work_path + 'commands.in','w')
     command_file.write('load ' + work_path + foil_name + '.dat'+'\n'\
     + foil_name + '\n\
-    panel\n\
+    plop\n\
+    g f\n\
+    \n\
     oper\n\
     visc ' + str(Re(V, ba(AR, Sw), nu)) + '\n\
     M ' + str(M) + '\n\
@@ -34,7 +36,7 @@ def XFoil_command_CL(V, AR, Sw, m, nu, M, ncr, xfoil_max_it, XFoil_path, work_pa
 
 def XFoil_run(file_path, xfoil_path):
     sep=os.path.sep
-    if os.path.exists(file_path ):
+    if os.path.exists(file_path):
         os.system('del ' + file_path + 'polar.dat')
     run_xfoil_command = xfoil_path + 'xfoil < ' + file_path + \
     'commands.in'
