@@ -1,6 +1,6 @@
 NAME,INDEX,VALUE,LINKED
 #Аэродинамические параметры
-CL_take_off,,1.3,
+CL_take_off,,1.2,
 eta_prop,,0.7,
 #Геометрические ограничения
 A_aft,,0.8,
@@ -15,7 +15,7 @@ mRunc_s4,4,0.01,
 nRunc_s4,4,1,
 #Силовая установка
 mReg,5,0.025,
-nReg,5,2,
+nReg,5,1,
 mAT2308,6,0.058,
 nAT2308,6,1,
 m8X6_folding,,0.022,
@@ -30,17 +30,33 @@ nLiIon21700,8,0,
 capacity_LiIon21700,,5,
 #Конструкционные материалы
 tube10X9,,0.046,
-tube5X4,,0.011,
+tube5X4,19,0.011,
 tube8X7,,0.016,
 tube6X5,1,0.013,
 tube8X6,,0.032,
 ltube10X9,,0,
-ltube5X4,,0,
+ltube5X4,19,1,
 ltube8X7,,0,
 ltube6X5,,0,
 ltube8X6,,0,
-specific_wing,14,0.6,foil1_perimeter;ba;wingspan
-skin_thickness,,0.0004,
+Density_LWPLA,14,600,foil1_perimeter;ba;wingspan
+skin_thickness,14,0.0004,
+spar1_position,,0.15,
+spar2_position,,0.35,
+spar3_position,,0.75,
+spar4_postition,,0.78,
+spar1_height,15,0.085,wingspan
+spar2_height,16,0.09,wingspan
+spar3_height,17,0.04,wingspan
+spar4_height,18,0.04,wingspan
+spar1_thickness,15,0.0008,
+spar1_density,15,600,
+spar2_thickness,16,0.0008,
+spar2_density,16,600,
+spar3_thickness,17,0.0008,
+spar3_density,17,600,
+spar4_thickness,18,0.0008,
+spar4_density,18,600,
 specific_aft,,1.05,Vtail_area
 mfus,13,0.15,
 nfus,13,1,
@@ -55,4 +71,5 @@ mPixhawk,11,0.048,
 nPixhawk,11,1,
 mPito,12,,
 nPito,12,0,
-test_param,14,2,
+mBaro,,,
+nBaro,,,

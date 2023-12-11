@@ -17,7 +17,7 @@ def CL_cruise(TOM, cruise_speed, wing_area, g, Density):
     return 2 * TOM * g / (Density * cruise_speed ** 2 * wing_area)
 
 def wingspan (AR, wing_area):
-    return (AR * wing_area) ** 2
+    return (AR * wing_area) ** 0.5
 
 def ba(AR, wing_area):
     return (wing_area / AR) ** 0.5
@@ -38,7 +38,7 @@ def P_cruise(TOM, K_cruise, eta_prop, g):
     return TOM * g / (K_cruise * eta_prop)
 
 def wire_length(wingspan, l_stab, wire_scale_coef):
-    return wingspan / 2 + 2 * wire_scale_coef * l_stab
+    return wingspan + 2 * wire_scale_coef * l_stab
     
 def calc_foil_perimeter(filename):
     f = open(filename, 'r')
