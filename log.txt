@@ -1,0 +1,70 @@
+итерация 1 
+
+Аэродинамические параметры 
+
+Геометрические ограничения 
+l_stab * tube6X5 =  0.0078 
+
+Компоненты FPV-системы 
+mVTX * nVTX =  0.024 
+mCrossfire * nCrossfire =  0.005 
+mRunc_s4 * nRunc_s4 =  0.01 
+
+Силовая установка 
+mReg * nReg =  0.05 
+mAT2308 * nAT2308 =  0.058 
+mLiIon18650 * nLiIon18650 =  0.14100000000000001 
+mLiIon21700 * nLiIon21700 =  0.0 
+
+Конструкционные материалы 
+specific_wing * wing_area * AR =  0.0 
+specific_aft * Vtail_area =  0.0 
+mfus * nfus =  0.15 
+
+Cервы+провода 
+mMG90 * nMG90 =  0.0 
+mES9051 * nES9051 =  0.024 
+specific_3wire * wire_length =  0.0 
+
+Мозги+датчики 
+mPixhawk * nPixhawk =  0.048 
+mPito * nPito =  0.0 
+==================== 
+M = 0.5178
+ 
+итерация 2 
+
+Аэродинамические параметры 
+
+Геометрические ограничения 
+l_stab * tube6X5 =  0.0078 
+
+Компоненты FPV-системы 
+mVTX * nVTX =  0.024 
+mCrossfire * nCrossfire =  0.005 
+mRunc_s4 * nRunc_s4 =  0.01 
+
+Силовая установка 
+mReg * nReg =  0.05 
+mAT2308 * nAT2308 =  0.058 
+mLiIon18650 * nLiIon18650 =  0.14100000000000001 
+mLiIon21700 * nLiIon21700 =  0.0 
+
+Конструкционные материалы 
+specific_wing * wing_area * AR =  0.0 
+specific_aft * Vtail_area =  0.0 
+mfus * nfus =  0.15 
+
+Cервы+провода 
+mMG90 * nMG90 =  0.0 
+mES9051 * nES9051 =  0.024 
+specific_3wire * wire_length =  0.0 
+
+Мозги+датчики 
+mPixhawk * nPixhawk =  0.048 
+mPito * nPito =  0.0 
+==================== 
+M = 0.5178
+ 
+сошлось на итерации: 2 
+информация сохранена в файл с геометрией 

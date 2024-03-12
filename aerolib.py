@@ -56,3 +56,6 @@ def calc_foil_perimeter(filename):
             raise ValueError
         P += ((x-x_)**2 + (y-y_)**2)**0.5
     return P
+
+def foo():
+	print('hello!')

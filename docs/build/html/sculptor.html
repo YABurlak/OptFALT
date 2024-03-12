@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sculptor module &mdash; OptFALT 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=af2ce170"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="weigh module" href="weigh.html" />
+    <link rel="prev" title="params module" href="params.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OptFALT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices.html">Microservices</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="documentation.html#list-of-modules-with-a-descriptions">List of modules with a descriptions</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="modules.html">OptFALT</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="aerolib.html">aerolib module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html">exceptions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry.html">geometry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="handlers.html">handlers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inner_iteration.html">inner_iteration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mass_dependencies.html">mass_dependencies module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="params.html">params module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sculptor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weigh.html">weigh module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xfoillib.html">xfoillib module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OptFALT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="documentation.html">Documentation</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">OptFALT</a></li>
+      <li class="breadcrumb-item active">sculptor module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sculptor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sculptor">
+<span id="sculptor-module"></span><h1>sculptor module<a class="headerlink" href="#module-sculptor" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="sculptor.Sculptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Sculptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">performance_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><strong>Sculptor is a calculator of plane geometry.</strong>
+It uses parametrs and a some requirements (performance) to
+calculate geometry and weidth of a plane.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">performance_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>The Sculptor class initializer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>performance_file_name</strong> (<em>str</em>) – The name of file, where performance is defined. It must be an .csv file, filled in a certain way. For more information, see the section performance file format.</p></li>
+<li><p><strong>params_file_name</strong> (<em>str</em>) – The name of file, where params is defined. It must be an .csv file, filled in a certain way. For more information, see the section params file format.</p></li>
+<li><p><strong>settings_file_name</strong> (<em>str</em>) – The name of file, where settings is defined. It must be an .csv file, filled in a certain way. For more information, see the section settings file format.</p></li>
+<li><p><strong>m</strong> (<em>float</em>) – a first approximation of the plane mass value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.calculate_geometry">
+<span class="sig-name descname"><span class="pre">calculate_geometry</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.calculate_geometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.calculate_geometry" title="Permalink to this definition"></a></dt>
+<dd><p>Geometry calculation.</p>
+<p>This function fills the geom data frames using functions from the aerolib library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.get_data_to_weigh">
+<span class="sig-name descname"><span class="pre">get_data_to_weigh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.get_data_to_weigh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.get_data_to_weigh" title="Permalink to this definition"></a></dt>
+<dd><p>A hendler to use weight-function</p>
+<p>Read more about the weight function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list with the file names params_file_name and geom_file_name</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.preprocess_params">
+<span class="sig-name descname"><span class="pre">preprocess_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.preprocess_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.preprocess_params" title="Permalink to this definition"></a></dt>
+<dd><p>Checking the parameter dataframe - params</p>
+<p>The developers have set a list of critical parameters. That is, those without which the calculation will not make sense at all. Their values are required. This function checks the dataframe for all critical parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.preprocess_performance">
+<span class="sig-name descname"><span class="pre">preprocess_performance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.preprocess_performance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.preprocess_performance" title="Permalink to this definition"></a></dt>
+<dd><p>Checking the parameter data frames - performance</p>
+<p>The developers have set a list of critical parameters. That is, those without which the calculation will not make sense at all. Their values are required. This function checks the dataframe for all critical parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.preprocess_settings">
+<span class="sig-name descname"><span class="pre">preprocess_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.preprocess_settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.preprocess_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Checking the parameter dataframe - settings</p>
+<p>The developers have set a list of critical parameters. That is, those without which the calculation will not make sense at all. Their values are required. This function checks the dataframe for all critical parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.update_m">
+<span class="sig-name descname"><span class="pre">update_m</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_m</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.update_m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.update_m" title="Permalink to this definition"></a></dt>
+<dd><p>A simple setter.</p>
+<p>This function sets a new value to tom</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.write_aero">
+<span class="sig-name descname"><span class="pre">write_aero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.write_aero"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.write_aero" title="Permalink to this definition"></a></dt>
+<dd><p>Writing to a file</p>
+<p>Writes the contents of the aero data frames to the aero_file_name file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.write_geom">
+<span class="sig-name descname"><span class="pre">write_geom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.write_geom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.write_geom" title="Permalink to this definition"></a></dt>
+<dd><p>Writing to a file</p>
+<p>Writes the contents of the geom data frames to the geom_file_name file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sculptor.Sculptor.write_info">
+<span class="sig-name descname"><span class="pre">write_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sculptor.html#Sculptor.write_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sculptor.Sculptor.write_info" title="Permalink to this definition"></a></dt>
+<dd><p>Writing to a file</p>
+<p>Writes the contents of the aero and geom data frames to the aero_file_name and geom_file_name files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.aero">
+<span class="sig-name descname"><span class="pre">aero</span></span><a class="headerlink" href="#sculptor.Sculptor.aero" title="Permalink to this definition"></a></dt>
+<dd><p>Dataframe formed from aero_file_name-file</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.aero_file_name">
+<span class="sig-name descname"><span class="pre">aero_file_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sculptor.Sculptor.aero_file_name" title="Permalink to this definition"></a></dt>
+<dd><p>The name of file, where cruising characteristics will be placed. <strong>Сurrently not supported!</strong></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.geom">
+<span class="sig-name descname"><span class="pre">geom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#sculptor.Sculptor.geom" title="Permalink to this definition"></a></dt>
+<dd><p>Dataframe formed from geom_file_name-file</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.geom_file_name">
+<span class="sig-name descname"><span class="pre">geom_file_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sculptor.Sculptor.geom_file_name" title="Permalink to this definition"></a></dt>
+<dd><p>The name of file, where geometry of plane will be placed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#sculptor.Sculptor.params" title="Permalink to this definition"></a></dt>
+<dd><p>Dataframe formed from params_file_name-file</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.params_file_name">
+<span class="sig-name descname"><span class="pre">params_file_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sculptor.Sculptor.params_file_name" title="Permalink to this definition"></a></dt>
+<dd><p>The name of file, where performance is defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.performance">
+<span class="sig-name descname"><span class="pre">performance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#sculptor.Sculptor.performance" title="Permalink to this definition"></a></dt>
+<dd><p>Dataframe formed from performance_file_name-file</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.settings">
+<span class="sig-name descname"><span class="pre">settings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#sculptor.Sculptor.settings" title="Permalink to this definition"></a></dt>
+<dd><p>Dataframe formed from settings_file_name-file</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sculptor.Sculptor.tom">
+<span class="sig-name descname"><span class="pre">tom</span></span><a class="headerlink" href="#sculptor.Sculptor.tom" title="Permalink to this definition"></a></dt>
+<dd><p>The weight of the aircraft in kilograms</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="params.html" class="btn btn-neutral float-left" title="params module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="weigh.html" class="btn btn-neutral float-right" title="weigh module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Burlakov Yuri, Kohanova Vlada, Kuzmin Vyacheslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

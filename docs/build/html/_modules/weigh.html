@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>weigh &mdash; OptFALT 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=af2ce170"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OptFALT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OptFALT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">weigh</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for weigh</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">exceptions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">handlers</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="sd">&#39;&#39;&#39;  </span>
+<span class="sd">Ожидаемый формат params-csv-файла</span>
+<span class="sd">NAME  INDEX  VALUE LINKED</span>
+<span class="sd">0   m1    1      1            NaN</span>
+<span class="sd">1   n1    1     10            NaN</span>
+<span class="sd">2   m2    2      2            a1;a2</span>
+<span class="sd">3   n2    2    100            NaN</span>
+<span class="sd">4   m3    NaN      3          NaN</span>
+<span class="sd">5    M    NaN   1000          a3;1/cy</span>
+
+<span class="sd">Ожидаемый формат geomerty-csv-файла</span>
+<span class="sd">NAME      VALUE</span>
+<span class="sd">wing_area 1</span>
+<span class="sd">ba        1</span>
+<span class="sd">wingspan  1</span>
+<span class="sd">AR        1</span>
+
+<span class="sd">Подсчёт массы ЛА осуществляется по правилам:</span>
+<span class="sd"> 1) в ходе парсинга двух файлов (params_file, geometry_file) </span>
+<span class="sd">    формируется набор слагаемых, которые в сумме образуют массу ЛА</span>
+<span class="sd"> 2) все параметры из params_file, имеющие одинаковые индексы, будут перемножены, образуя слагаемое</span>
+<span class="sd"> 3) если у параметра из params_file в поле LINKED указана связанная величина </span>
+<span class="sd">    (или набор связанных величин) из geometry_file, </span>
+<span class="sd">    то этот параметр будет перемножен с ней, образуя слагаемое</span>
+<span class="sd">    (в случае набора, слагаемым станет произведение всех величин из этого набора, умноженное на сам параметр) </span>
+<span class="sd"> 4) если у величин указан и индекс, и связанная величина, то слагаемым станет </span>
+<span class="sd">    произведение всех параметров с одинаковыми индексами и всех у них указанных связанных величин</span>
+<span class="sd"> 5) в случае, если у параметра нет индекса, им становится имя параметра</span>
+<span class="sd"> 6) параметр, у которого не указан индекс и не указана связанная величина, не будет учтён при подсчёте массы</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<div class="viewcode-block" id="weigh"><a class="viewcode-back" href="../weigh.html#weigh.weigh">[docs]</a><span class="k">def</span> <span class="nf">weigh</span><span class="p">(</span><span class="n">params_file_name</span><span class="p">,</span> <span class="n">geometry_file_name</span><span class="p">,</span> <span class="n">indicate_missing_param_vals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_keys_in_logs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">geom_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">geometry_file_name</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="c1">#удаление заголовка из DF</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">geom_df</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">geom_df</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">#создание словаря {Cy: &lt;val&gt;, ...}</span>
+
+    <span class="c1">#создание таблицы с колонками вида </span>
+    <span class="c1">#[&lt;colomn_num&gt;, &lt;NAME&gt;, &lt;INDEX&gt;, &lt;VALUE&gt;, &lt;LINKED&gt;]</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">params_file_name</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> 
+    <span class="n">params</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">params</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]))</span><span class="o">.</span><span class="n">T</span>
+    
+    <span class="c1">#создание словаря </span>
+    <span class="c1">#{&lt;index&gt;: &lt;список значений всех параметров и связанных величин, которые в произведении образуют слагаемое&gt;}</span>
+    <span class="n">multiply_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">multiply_dict_names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">TOM</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span> <span class="c1">#итерация по колонкам; в var попадает номер колонки (colomn_num)</span>
+        <span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;VALUE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;VALUE&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">isnan</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;VALUE&quot;</span><span class="p">]):</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span>
+            <span class="k">if</span> <span class="n">indicate_missing_param_vals</span><span class="p">:</span>
+                <span class="n">ans</span> <span class="o">=</span> <span class="n">get_correct_answer</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">У ПАРАМЕТРА </span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> нет значения - пропустить и продолжить (y/n)?&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">ans</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InsufficientInputData</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;no value for variable &#39;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">isnan</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;INDEX&quot;</span><span class="p">])</span> <span class="ow">and</span> <span class="n">isnan</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;LINKED&quot;</span><span class="p">]):</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">isnan</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;INDEX&quot;</span><span class="p">]):</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;INDEX&quot;</span><span class="p">]</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span>
+
+        <span class="n">multiply_dict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiply_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">multiply_dict_names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiply_dict_names</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="c1">#сборка слагаемого:</span>
+        <span class="c1">#добавление параметра к тем, у которых такой же индекс</span>
+        <span class="n">multiply_dict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;VALUE&quot;</span><span class="p">])</span>
+        <span class="n">multiply_dict_names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;NAME&quot;</span><span class="p">])</span>
+
+        <span class="c1">#добавление связанных величин = </span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">isnan</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;LINKED&quot;</span><span class="p">]):</span>
+            <span class="n">linked_list</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s2">&quot;LINKED&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">linked</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">conj</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">geom</span><span class="p">[</span><span class="n">conj</span><span class="p">[</span><span class="mi">2</span><span class="p">:]])</span> <span class="k">if</span> <span class="n">conj</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1/&quot;</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">geom</span><span class="p">[</span><span class="n">conj</span><span class="p">]),</span> <span class="n">linked_list</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">InsufficientInputData</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;for variable &#39;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;LINKED&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; &quot;</span><span class="o">+</span>\
+                                                <span class="sa">f</span><span class="s2">&quot;is specified as linked, but it is no &#39;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;LINKED&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="o">+</span>\
+                                                <span class="sa">f</span><span class="s2">&quot; in the geom-file&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">conj</span><span class="p">,</span> <span class="n">conj_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">linked</span><span class="p">,</span> <span class="n">linked_list</span><span class="p">):</span>
+                <span class="n">multiply_dict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conj</span><span class="p">)</span>
+                <span class="n">multiply_dict_names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conj_name</span><span class="p">)</span>
+
+    <span class="c1">#вычисление и суммирование слагаемых</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">multiply_dict</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">multiply_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">item</span> <span class="c1">#в vals содержатся все компоненты, в произведении образующие слагаемое</span>
+        <span class="n">TOM</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">show_keys_in_logs</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[key=</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">]</span><span class="se">\n</span><span class="s2"> + &quot;</span><span class="p">,</span> <span class="s2">&quot; * &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">multiply_dict_names</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;: </span><span class="si">{</span><span class="n">TOM</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; + &quot;</span><span class="p">,</span> <span class="s2">&quot; * &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">multiply_dict_names</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;: </span><span class="si">{</span><span class="n">TOM</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;------------------------</span><span class="se">\n</span><span class="s2">Итоговая масса: </span><span class="si">{</span><span class="n">TOM</span><span class="si">}</span><span class="se">\n</span><span class="s2">------------------------</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TOM</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Burlakov Yuri, Kohanova Vlada, Kuzmin Vyacheslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

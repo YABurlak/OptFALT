@@ -1,8 +1,8 @@
-load D:\YURA\Aerokitties\OptFALT\SD7037.dat
+load /home/crucian/Desktop/aerokittes/Yura_s/OptFALT/SD7037.dat
 SD7037
     panel
     oper
-    visc 180715
+    visc 159078
     M 0.0
     type 1
     vpar
@@ -11,7 +11,7 @@ SD7037
     iter
 1000
     pacc
-D:\YURA\Aerokitties\OptFALT\polar.dat
+/home/crucian/Desktop/aerokittes/Yura_s/OptFALT/polar.dat
     
     cl 0.26325000000000004
     
