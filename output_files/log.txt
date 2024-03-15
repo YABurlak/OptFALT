@@ -17,21 +17,21 @@ mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
-specific_wing * wing_area * AR = 2.494512166643314
-specific_aft * Vtail_area = 0.23559316576592892
+specific_wing * wing_area * AR = 1.603614964270702
+specific_aft * Vtail_area = 0.04293857256138728
 mfus * nfus = 0.15
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.04162934876215395
+specific_3wire * wire_length = 0.02656029489876358
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.0
 
 ====================
-M = 3.289534681171397
+M = 2.190913831730853
 
 
 итерация 2 
@@ -53,21 +53,21 @@ mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
-specific_wing * wing_area * AR = 5.275147040213905
-specific_aft * Vtail_area = 1.2671930167823413
+specific_wing * wing_area * AR = 3.5133822059912587
+specific_aft * Vtail_area = 0.13924690419965785
 mfus * nfus = 0.15
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.13471032871239746
+specific_3wire * wire_length = 0.03219767434959803
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.0
 
 ====================
-M = 7.194850385708644
+M = 4.202626784540515
 
 
 итерация 3 
@@ -89,21 +89,21 @@ mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
-specific_wing * wing_area * AR = 11.537769744211214
-specific_aft * Vtail_area = 12.119241807027564
+specific_wing * wing_area * AR = 6.739395200934033
+specific_aft * Vtail_area = 0.3699379102017957
 mfus * nfus = 0.15
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.5883534427977954
+specific_3wire * wire_length = 0.03888796758555508
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.0
 
 ====================
-M = 24.763164994036572
+M = 7.666021078721384
 
 
 итерация 4 
@@ -125,21 +125,21 @@ mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
-specific_wing * wing_area * AR = 39.710581947141456
-specific_aft * Vtail_area = 476.5805620163036
+specific_wing * wing_area * AR = 12.29334611825224
+specific_aft * Vtail_area = 0.9113865526880586
 mfus * nfus = 0.15
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 6.808850851027686
+specific_3wire * wire_length = 0.0473260358815942
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.0
 
 ====================
-M = 523.6177948144727
+M = 13.769858706821893
 
 
 итерация 5 
@@ -161,21 +161,22 @@ mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
-specific_wing * wing_area * AR = 839.6813313229145
-specific_aft * Vtail_area = 4475219.838791397
+specific_wing * wing_area * AR = 22.081551478152804
+specific_aft * Vtail_area = 2.1940262975494984
 mfus * nfus = 0.15
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 3037.7087032816835
+specific_3wire * wire_length = 0.05838560483534919
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.0
 
 ====================
-M = 4479097.746626003
+M = 24.851763380537648
 
 
 прошло 5 итераций, но расчёт всё ещё не завершён. 
+последняя итерация геометрии сохранена 

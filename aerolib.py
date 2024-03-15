@@ -106,29 +106,7 @@ def wire_length(wingspan, l_stab, wire_scale_coef):
     '''
     return wingspan + 2 * wire_scale_coef * l_stab
     
-def calc_foil_perimeter(filename):
-    '''Calculates foil perimeter using geometry file.
-    '''
-    f = open(filename, 'r')
-    dots = f.read().split("\n")[1:]
-    if dots[-1].split() == []:
-        dots = dots[:-1]
-    P = 0
-    for i in range(0, len(dots)):
-        i = i%len(dots)
-        try: 
-            x_, y_ = list(map(lambda x: float(x), dots[i-1].split()))
-            x, y = list(map(lambda x: float(x), dots[i].split()))
-        except Exception:
-            print(f"\tWARN! calc_perimeter: ошибка парсинга строк {i}, {i-1}")
-            raise ValueError
-        P += ((x-x_)**2 + (y-y_)**2)**0.5
-    return P
 
-<<<<<<< HEAD
-def foo():
-	print('hello!')
-=======
 def calc_foil_area(filename):
     '''Calculates foil area using geometry file.
     '''
@@ -147,4 +125,3 @@ def calc_foil_area(filename):
             raise ValueError
         S += x_ * (y-y_)
     return S
->>>>>>> d05cf4cc1a2906c429436e655484fed81afc53c5

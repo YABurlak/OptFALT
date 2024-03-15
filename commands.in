@@ -1,8 +1,10 @@
 load /home/crucian/Desktop/aerokittes/Yura_s/OptFALT/SD7037.dat
 SD7037
-    panel
+    plop
+    g f
+    
     oper
-    visc 3770520
+    visc 611447
     M 0.0
     type 1
     vpar
@@ -13,7 +15,7 @@ SD7037
     pacc
 /home/crucian/Desktop/aerokittes/Yura_s/OptFALT/polar.dat
     
-    cl 0.26325
+    cl 0.26325000000000004
     
     
     quit

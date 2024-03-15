@@ -58,13 +58,8 @@ def XFoil_run(file_path: str, xfoil_path: str):
     :return: 0
     '''
     sep=os.path.sep
-<<<<<<< HEAD
-    if os.path.exists(file_path ):
-        os.system(get_del_comand() + ' ' + file_path + 'polar.dat')
-=======
     if os.path.exists(file_path):
         os.system('del ' + file_path + 'polar.dat')
->>>>>>> d05cf4cc1a2906c429436e655484fed81afc53c5
     run_xfoil_command = xfoil_path + 'xfoil < ' + file_path + \
     'commands.in'
     os.system(run_xfoil_command)
@@ -84,7 +79,7 @@ def XFoil_read(file_path: str):
     aero_data_file.close()
 
     
-    os.system(get_del_comand() + ' ' + file_path + 'polar.dat')
+    os.system('del' + ' ' + file_path + 'polar.dat')
     alpha, cl, cd = float(last_line[0]), float(last_line[1]), float(last_line[2])
     return [alpha, cl, cd]
 
