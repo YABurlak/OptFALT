@@ -75,7 +75,7 @@ class Sculptor():
         ar_step_number = int(abs(float(self.settings.ar_max) - float(self.settings.ar_min)) // float(self.settings.ar_delta))
         ar_range = np.linspace(float(self.settings.ar_min), float(self.settings.ar_max), ar_step_number)
         
-        self.geometry.AR = AR_selector(ar_range, self.geometry, self.settings, self.performance, self.tom)
+        self.geometry.AR = AR_selector(self.geometry, self.geometry, self.settings, self.performance, self.tom)
         self.aero.AR, self.aero.V, self.aero.alpha, self.aero.CL, self.aero.CDi, self.aero.K, self.aero.CD = K_V_solver(self.geometry, self.settings, self.performance.cruise_speed, self.geometry.AR, self.tom).values.tolist()[0]
         
         self.geometry.ba = ba(self.geometry.AR, self.geometry.wing_area)
