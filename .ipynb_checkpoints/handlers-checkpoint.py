@@ -20,4 +20,6 @@ def import_py_module(name):
     if name.split('.')[1] != "py" or len(name.split('.'))!=2:
         print(f"File {name} was not import! It's name is incorrect!")
         return
-    return import_module(name.split('.')[0])
+    module = name.split('.')[0]
+    module = ".".join(module.split("/"))
+    return import_module(module)

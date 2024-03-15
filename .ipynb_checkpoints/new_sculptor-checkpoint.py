@@ -2,10 +2,13 @@ import pandas as pd
 import numpy as np
 from handlers import isnan, import_py_module
 from importlib import reload, import_module 
+import logger 
 
 from aerolib import *
 from xfoillib import *
 from exceptions import *
+import input_files.mass_dependencies as md
+
 
 class Sculptor():
     def __init__(self, performance_file_name, params_file_name, settings_file_name, m):
@@ -18,10 +21,6 @@ class Sculptor():
         self.settings_file_name: str = settings_file_name
         self.settings = import_py_module(settings_file_name)
         
-        #self.preprocess_settings()
-        #self.preprocess_params()
-        #self.preprocess_performance()
-        
         self.geometry_file_name = self.generate_geometry_file()
         self.geometry = import_py_module(self.geometry_file_name)
 
@@ -29,9 +28,24 @@ class Sculptor():
         self.aero = import_py_module(self.aero_file_name)
         
         self.tom = m 
+        self.log_flag = False
+        self.log_file_name = "output_files/log.txt"
+        open(self.log_file_name, "w").close()
+        
+
+    def log(self, *data, end='\n', sep=' '):
+        file = open(self.log_file_name, "a")
+        for line in data: 
+            file.write(str(line))
+            file.write(sep)
+        file.write(end)
+        file.close()
+
+    def enable_log(self):
+        self.log_flag = True
 
     def generate_geometry_file(self, unic_name=False):
-        geometry_file_name = "geometry.py"
+        geometry_file_name = "output_files/geometry.py"
         if unic_name:
             pass
         self.geometry_variables = ["wing_area", "AR", "ba", "wingspan", "foil1_perimeter",
@@ -44,7 +58,7 @@ class Sculptor():
         return geometry_file_name
 
     def generate_aero_file(self, unic_name=False):
-        aero_file_name = "aero.py"
+        aero_file_name = "output_files/aero.py"
         if unic_name:
             pass
         self.aero_variables = ["AR", "V", "alpha", "CL", "CDi", "K", "CD"]
@@ -53,15 +67,6 @@ class Sculptor():
             file.write(var+" = 0\n")
         file.close()
         return aero_file_name
-
-    def preprocess_params(self):
-        pass
-
-    def preprocess_performance(self):
-        pass
-    
-    def preprocess_settings(self):
-        pass
 
     def calculate_geometry(self):
         self.geometry.wing_area = wing_area(self.tom, float(self.settings.g), float(self.settings.density), float(self.performance.take_off_speed), float(self.params.CL_take_off))
@@ -87,7 +92,6 @@ class Sculptor():
         self.tom = new_m
     
     def write_geom(self):
-        print([item for item in dir(self.geometry) if not item.startswith("__")])
         file = open(self.geometry_file_name, "w")
         for var_name in self.geometry_variables:
             tmp = getattr(self.geometry, var_name)
@@ -104,4 +108,12 @@ class Sculptor():
     def write_info(self):
         self.write_geom()
         self.write_aero()
+
+    def weigh(self, log=False):
+        reload(md)
+        reload(logger)
         
+        if self.log_flag:
+            logger.log_weigh(self.log_file_name)
+        M = md.weigh()
+        return M

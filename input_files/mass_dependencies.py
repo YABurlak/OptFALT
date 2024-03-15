@@ -1,6 +1,6 @@
-from params import *
-from geometry import *
 from importlib import reload
+from input_files.params import *
+from output_files.geometry import *
 
 
 def weigh():
@@ -34,5 +34,4 @@ def weigh():
     #Мозги+датчики
     M += mPixhawk * nPixhawk
     M += mPito * nPito
-    print(M)
     return M
