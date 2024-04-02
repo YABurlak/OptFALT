@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aerolib &mdash; OptFALT 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=af2ce170"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OptFALT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microservices.html">Microservices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OptFALT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">aerolib</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for aerolib</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<div class="viewcode-block" id="Re"><a class="viewcode-back" href="../aerolib.html#aerolib.Re">[docs]</a><span class="k">def</span> <span class="nf">Re</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">nu</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">V</span> <span class="o">*</span> <span class="n">l</span> <span class="o">/</span> <span class="n">nu</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CL_required"><a class="viewcode-back" href="../aerolib.html#aerolib.CL_required">[docs]</a><span class="k">def</span> <span class="nf">CL_required</span> <span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">rho</span> <span class="o">=</span> <span class="mf">1.22</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="mf">9.81</span> <span class="o">/</span> <span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">V</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">S</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="CDi"><a class="viewcode-back" href="../aerolib.html#aerolib.CDi">[docs]</a><span class="k">def</span> <span class="nf">CDi</span> <span class="p">(</span><span class="n">CL</span><span class="p">,</span> <span class="n">AR</span><span class="p">,</span> <span class="n">osvald_coef</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">CL</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">pi</span> <span class="o">*</span> <span class="n">osvald_coef</span> <span class="o">*</span> <span class="n">AR</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="wing_area"><a class="viewcode-back" href="../aerolib.html#aerolib.wing_area">[docs]</a><span class="k">def</span> <span class="nf">wing_area</span><span class="p">(</span><span class="n">TOM</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">Density</span><span class="p">,</span> <span class="n">take_off_speed</span><span class="p">,</span> <span class="n">CL_take_off</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">TOM</span> <span class="o">*</span> <span class="n">g</span> <span class="o">/</span> <span class="p">(</span><span class="n">Density</span> <span class="o">*</span> <span class="n">take_off_speed</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">CL_take_off</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CL_cruise"><a class="viewcode-back" href="../aerolib.html#aerolib.CL_cruise">[docs]</a><span class="k">def</span> <span class="nf">CL_cruise</span><span class="p">(</span><span class="n">TOM</span><span class="p">,</span> <span class="n">cruise_speed</span><span class="p">,</span> <span class="n">wing_area</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">Density</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">TOM</span> <span class="o">*</span> <span class="n">g</span> <span class="o">/</span> <span class="p">(</span><span class="n">Density</span> <span class="o">*</span> <span class="n">cruise_speed</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">wing_area</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="wingspan"><a class="viewcode-back" href="../aerolib.html#aerolib.wingspan">[docs]</a><span class="k">def</span> <span class="nf">wingspan</span> <span class="p">(</span><span class="n">AR</span><span class="p">,</span> <span class="n">wing_area</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">AR</span> <span class="o">*</span> <span class="n">wing_area</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span></div>
+
+<div class="viewcode-block" id="ba"><a class="viewcode-back" href="../aerolib.html#aerolib.ba">[docs]</a><span class="k">def</span> <span class="nf">ba</span><span class="p">(</span><span class="n">AR</span><span class="p">,</span> <span class="n">wing_area</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">wing_area</span> <span class="o">/</span> <span class="n">AR</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span></div>
+
+<div class="viewcode-block" id="aft_area"><a class="viewcode-back" href="../aerolib.html#aerolib.aft_area">[docs]</a><span class="k">def</span> <span class="nf">aft_area</span><span class="p">(</span><span class="n">A_aft</span><span class="p">,</span> <span class="n">wing_area</span><span class="p">,</span> <span class="n">ba</span><span class="p">,</span> <span class="n">l_stab</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A_aft</span> <span class="o">*</span> <span class="n">wing_area</span> <span class="o">*</span> <span class="n">ba</span> <span class="o">/</span> <span class="n">l_stab</span></div>
+
+<div class="viewcode-block" id="keel_area"><a class="viewcode-back" href="../aerolib.html#aerolib.keel_area">[docs]</a><span class="k">def</span> <span class="nf">keel_area</span><span class="p">(</span><span class="n">B_keel</span><span class="p">,</span> <span class="n">wing_area</span><span class="p">,</span> <span class="n">wing_span</span><span class="p">,</span> <span class="n">l_stab</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">B_keel</span> <span class="o">*</span> <span class="n">wing_area</span> <span class="o">*</span> <span class="n">wing_span</span> <span class="o">/</span> <span class="n">l_stab</span></div>
+
+<div class="viewcode-block" id="gamma"><a class="viewcode-back" href="../aerolib.html#aerolib.gamma">[docs]</a><span class="k">def</span> <span class="nf">gamma</span><span class="p">(</span><span class="n">keel_area</span><span class="p">,</span> <span class="n">aft_area</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">atan</span><span class="p">((</span><span class="n">keel_area</span> <span class="o">/</span> <span class="n">aft_area</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="stab_area"><a class="viewcode-back" href="../aerolib.html#aerolib.stab_area">[docs]</a><span class="k">def</span> <span class="nf">stab_area</span><span class="p">(</span><span class="n">aft_area</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">aft_area</span> <span class="o">/</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">gamma</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span></div>
+
+<div class="viewcode-block" id="P_cruise"><a class="viewcode-back" href="../aerolib.html#aerolib.P_cruise">[docs]</a><span class="k">def</span> <span class="nf">P_cruise</span><span class="p">(</span><span class="n">TOM</span><span class="p">,</span> <span class="n">K_cruise</span><span class="p">,</span> <span class="n">eta_prop</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">TOM</span> <span class="o">*</span> <span class="n">g</span> <span class="o">/</span> <span class="p">(</span><span class="n">K_cruise</span> <span class="o">*</span> <span class="n">eta_prop</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="wire_length"><a class="viewcode-back" href="../aerolib.html#aerolib.wire_length">[docs]</a><span class="k">def</span> <span class="nf">wire_length</span><span class="p">(</span><span class="n">wingspan</span><span class="p">,</span> <span class="n">l_stab</span><span class="p">,</span> <span class="n">wire_scale_coef</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">wingspan</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">wire_scale_coef</span> <span class="o">*</span> <span class="n">l_stab</span></div>
+    
+<div class="viewcode-block" id="calc_foil_perimeter"><a class="viewcode-back" href="../aerolib.html#aerolib.calc_foil_perimeter">[docs]</a><span class="k">def</span> <span class="nf">calc_foil_perimeter</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">dots</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="n">dots</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="n">dots</span> <span class="o">=</span> <span class="n">dots</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dots</span><span class="p">)):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="n">dots</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="n">x_</span><span class="p">,</span> <span class="n">y_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">dots</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">dots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">WARN! calc_perimeter: ошибка парсинга строк </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+        <span class="n">P</span> <span class="o">+=</span> <span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x_</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">y_</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">P</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Burlakov Yuri, Kohanova Vlada, Kuzmin Vyacheslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

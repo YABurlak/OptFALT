@@ -1,0 +1,182 @@
+итерация 1 
+
+Аэродинамические параметры
+
+Геометрические ограничения
+l_stab * tube6X5 = 0.0078
+
+Компоненты FPV-системы
+mVTX * nVTX = 0.024
+mCrossfire * nCrossfire = 0.005
+mRunc_s4 * nRunc_s4 = 0.01
+
+Силовая установка
+mReg * nReg = 0.05
+mAT2308 * nAT2308 = 0.058
+mLiIon18650 * nLiIon18650 = 0.14100000000000001
+mLiIon21700 * nLiIon21700 = 0.0
+
+Конструкционные материалы
+specific_wing * wing_area * AR = 1.603614964270702
+specific_aft * Vtail_area = 0.04293857256138728
+mfus * nfus = 0.15
+
+Cервы+провода
+mMG90 * nMG90 = 0.0
+mES9051 * nES9051 = 0.024
+specific_3wire * wire_length = 0.02656029489876358
+
+Мозги+датчики
+mPixhawk * nPixhawk = 0.048
+mPito * nPito = 0.0
+
+====================
+M = 2.190913831730853
+
+
+итерация 2 
+
+Аэродинамические параметры
+
+Геометрические ограничения
+l_stab * tube6X5 = 0.0078
+
+Компоненты FPV-системы
+mVTX * nVTX = 0.024
+mCrossfire * nCrossfire = 0.005
+mRunc_s4 * nRunc_s4 = 0.01
+
+Силовая установка
+mReg * nReg = 0.05
+mAT2308 * nAT2308 = 0.058
+mLiIon18650 * nLiIon18650 = 0.14100000000000001
+mLiIon21700 * nLiIon21700 = 0.0
+
+Конструкционные материалы
+specific_wing * wing_area * AR = 3.5133822059912587
+specific_aft * Vtail_area = 0.13924690419965785
+mfus * nfus = 0.15
+
+Cервы+провода
+mMG90 * nMG90 = 0.0
+mES9051 * nES9051 = 0.024
+specific_3wire * wire_length = 0.03219767434959803
+
+Мозги+датчики
+mPixhawk * nPixhawk = 0.048
+mPito * nPito = 0.0
+
+====================
+M = 4.202626784540515
+
+
+итерация 3 
+
+Аэродинамические параметры
+
+Геометрические ограничения
+l_stab * tube6X5 = 0.0078
+
+Компоненты FPV-системы
+mVTX * nVTX = 0.024
+mCrossfire * nCrossfire = 0.005
+mRunc_s4 * nRunc_s4 = 0.01
+
+Силовая установка
+mReg * nReg = 0.05
+mAT2308 * nAT2308 = 0.058
+mLiIon18650 * nLiIon18650 = 0.14100000000000001
+mLiIon21700 * nLiIon21700 = 0.0
+
+Конструкционные материалы
+specific_wing * wing_area * AR = 6.739395200934033
+specific_aft * Vtail_area = 0.3699379102017957
+mfus * nfus = 0.15
+
+Cервы+провода
+mMG90 * nMG90 = 0.0
+mES9051 * nES9051 = 0.024
+specific_3wire * wire_length = 0.03888796758555508
+
+Мозги+датчики
+mPixhawk * nPixhawk = 0.048
+mPito * nPito = 0.0
+
+====================
+M = 7.666021078721384
+
+
+итерация 4 
+
+Аэродинамические параметры
+
+Геометрические ограничения
+l_stab * tube6X5 = 0.0078
+
+Компоненты FPV-системы
+mVTX * nVTX = 0.024
+mCrossfire * nCrossfire = 0.005
+mRunc_s4 * nRunc_s4 = 0.01
+
+Силовая установка
+mReg * nReg = 0.05
+mAT2308 * nAT2308 = 0.058
+mLiIon18650 * nLiIon18650 = 0.14100000000000001
+mLiIon21700 * nLiIon21700 = 0.0
+
+Конструкционные материалы
+specific_wing * wing_area * AR = 12.29334611825224
+specific_aft * Vtail_area = 0.9113865526880586
+mfus * nfus = 0.15
+
+Cервы+провода
+mMG90 * nMG90 = 0.0
+mES9051 * nES9051 = 0.024
+specific_3wire * wire_length = 0.0473260358815942
+
+Мозги+датчики
+mPixhawk * nPixhawk = 0.048
+mPito * nPito = 0.0
+
+====================
+M = 13.769858706821893
+
+
+итерация 5 
+
+Аэродинамические параметры
+
+Геометрические ограничения
+l_stab * tube6X5 = 0.0078
+
+Компоненты FPV-системы
+mVTX * nVTX = 0.024
+mCrossfire * nCrossfire = 0.005
+mRunc_s4 * nRunc_s4 = 0.01
+
+Силовая установка
+mReg * nReg = 0.05
+mAT2308 * nAT2308 = 0.058
+mLiIon18650 * nLiIon18650 = 0.14100000000000001
+mLiIon21700 * nLiIon21700 = 0.0
+
+Конструкционные материалы
+specific_wing * wing_area * AR = 22.081551478152804
+specific_aft * Vtail_area = 2.1940262975494984
+mfus * nfus = 0.15
+
+Cервы+провода
+mMG90 * nMG90 = 0.0
+mES9051 * nES9051 = 0.024
+specific_3wire * wire_length = 0.05838560483534919
+
+Мозги+датчики
+mPixhawk * nPixhawk = 0.048
+mPito * nPito = 0.0
+
+====================
+M = 24.851763380537648
+
+
+прошло 5 итераций, но расчёт всё ещё не завершён. 
+последняя итерация геометрии сохранена 

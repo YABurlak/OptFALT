@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aerolib module &mdash; OptFALT 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=af2ce170"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="exceptions module" href="exceptions.html" />
+    <link rel="prev" title="OptFALT" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OptFALT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservices.html">Microservices</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="documentation.html#list-of-modules-with-a-descriptions">List of modules with a descriptions</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="modules.html">OptFALT</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">aerolib module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html">exceptions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry.html">geometry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="handlers.html">handlers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inner_iteration.html">inner_iteration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mass_dependencies.html">mass_dependencies module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="params.html">params module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sculptor.html">sculptor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weigh.html">weigh module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xfoillib.html">xfoillib module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OptFALT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="documentation.html">Documentation</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">OptFALT</a></li>
+      <li class="breadcrumb-item active">aerolib module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/aerolib.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-aerolib">
+<span id="aerolib-module"></span><h1>aerolib module<a class="headerlink" href="#module-aerolib" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.CDi">
+<span class="sig-name descname"><span class="pre">CDi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osvald_coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#CDi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.CDi" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.CL_cruise">
+<span class="sig-name descname"><span class="pre">CL_cruise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TOM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cruise_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wing_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Density</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#CL_cruise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.CL_cruise" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.CL_required">
+<span class="sig-name descname"><span class="pre">CL_required</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.22</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#CL_required"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.CL_required" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.P_cruise">
+<span class="sig-name descname"><span class="pre">P_cruise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TOM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K_cruise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_prop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#P_cruise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.P_cruise" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.Re">
+<span class="sig-name descname"><span class="pre">Re</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5000000000000002e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#Re"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.Re" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.aft_area">
+<span class="sig-name descname"><span class="pre">aft_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A_aft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wing_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ba</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_stab</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#aft_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.aft_area" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.ba">
+<span class="sig-name descname"><span class="pre">ba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wing_area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#ba"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.ba" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.calc_foil_perimeter">
+<span class="sig-name descname"><span class="pre">calc_foil_perimeter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#calc_foil_perimeter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.calc_foil_perimeter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.gamma">
+<span class="sig-name descname"><span class="pre">gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keel_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aft_area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#gamma"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.gamma" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.keel_area">
+<span class="sig-name descname"><span class="pre">keel_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B_keel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wing_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wing_span</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_stab</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#keel_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.keel_area" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.stab_area">
+<span class="sig-name descname"><span class="pre">stab_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aft_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#stab_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.stab_area" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.wing_area">
+<span class="sig-name descname"><span class="pre">wing_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TOM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">take_off_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CL_take_off</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#wing_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.wing_area" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.wingspan">
+<span class="sig-name descname"><span class="pre">wingspan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wing_area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#wingspan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.wingspan" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aerolib.wire_length">
+<span class="sig-name descname"><span class="pre">wire_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wingspan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_stab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wire_scale_coef</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aerolib.html#wire_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aerolib.wire_length" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="OptFALT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="exceptions module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Burlakov Yuri, Kohanova Vlada, Kuzmin Vyacheslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

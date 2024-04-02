@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from aerolib import *
+from sys import platform
 
 class XFoilException(Exception):
     def __init__(self, text):
@@ -76,7 +77,9 @@ def XFoil_read(file_path: str):
     if last_line[0][:2] == '--':
         raise XFoilException(f'на одном из удлинений XFoil выдал отбивку')
     aero_data_file.close()
-    os.system('del ' + file_path + 'polar.dat')
+
+    
+    os.system('del' + ' ' + file_path + 'polar.dat')
     alpha, cl, cd = float(last_line[0]), float(last_line[1]), float(last_line[2])
     return [alpha, cl, cd]
 
@@ -108,13 +111,18 @@ def K_V_solver(Sw: float, foil_name: str, v: float, ar: float, tom: float,
                      M, ncr, xfoil_max_it, XFoil_path, work_path, foil_name)
     XFoil_run(work_path, XFoil_path)
     polar = np.append(polar, XFoil_read(work_path))
+
     polar = polar.reshape(polar.size // 3, 3)
     POLAR = pd.DataFrame(polar, columns = ['alpha', 'CL', 'CD'])
     POLAR.insert(0, "AR", ar)
     POLAR.insert(1, "V", v)
+
     POLAR.insert(5, "CDi", CDi(POLAR.CL, ar, osvald_coef = Osvald_c))
     POLAR.insert(6, "K", POLAR.CL / (POLAR.CD + POLAR.CDi))
+
     return POLAR
+    #print(polar)
+    #return [ar, v, polar[0][0], polar[0][1], polar[0][2], POLAR.CL / (POLAR.CD + POLAR.CDi), CDi(POLAR.CL, ar, osvald_coef = float(settings.osvald_coef))]
 
 def AR_selector(Sw: float, foil_name: str, v: float, ar_range: np.array, tom: float, xfoil_max_it: int, 
                 M: float, nu: float, ncr: int, Osvald_c: float, work_path: str, XFoil_path: str):
