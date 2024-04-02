@@ -1,9 +1,9 @@
 NAME,INDEX,VALUE,LINKED
 #Полезная нагрузка
-mGoPro,20,0.16,
-nGoPro,20,1,
+mCargo,20,0.5,
+nCargo,20,1,
 #Аэродинамические параметры
-CL_take_off,,1.1,
+CL_take_off,,1.6,
 eta_prop,,0.7,
 #Геометрические условия
 A_aft,,0.8,
@@ -19,29 +19,29 @@ nRunc_s4,4,1,
 #Силовая установка
 mReg,5,0.025,
 nReg,5,1,
-mAT2308,6,0.058,
-nAT2308,6,1,
+mAT2814,6,0.210,
+nAT2814,6,1,
 m8X6_folding,,0.022,
 n8X6_folding,,0,
 m8X6_fix,21,0.011,
 n8X6_fix,21,1,
-mLiIon18650,7,0.047,
-nLiIon18650,7,3,
+mBat,7,0.520,
+nBat,7,1,
 capacity_LiIon18650,,,
 mLiIon21700,8,0.0068,
 nLiIon21700,8,0,
 capacity_LiIon21700,,5,
 #Конструкционные материалы
-tube10X9,,0.046,
+tube10X8,23,0.086,
 tube5X4,19,0.011,
 tube8X7,,0.016,
 tube6X5,1,0.013,
-tube8X6,,0.032,
-ltube10X9,,0,
-ltube5X4,19,1,
+tube8X6,22,0.032,
+ltube10X8,,0.5,
+ltube5X4,19,0,
 ltube8X7,,0,
 ltube6X5,,0,
-ltube8X6,,0,
+ltube8X6,22,4,
 Density_LWPLA,14,600,foil1_perimeter;ba;wingspan
 Density_PETG,22,1200,foil1_area;ba;ba
 fiberglass,,0.14,wing_area
@@ -65,7 +65,7 @@ spar3_density,17,600,
 spar4_thickness,18,0.0008,
 spar4_density,18,600,
 specific_aft,,1.05,Vtail_area
-mfus,13,0.15,
+mfus,13,0.33,
 nfus,13,1,
 #Cервы+провода
 mMG90,9,0.015,

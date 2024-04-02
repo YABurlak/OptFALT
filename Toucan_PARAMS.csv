@@ -1,7 +1,7 @@
 NAME,INDEX,VALUE,LINKED
 #Полезная нагрузка
-mGoPro,20,0.16,
-nGoPro,20,1,
+mCargo,20,0.5,
+nCargo,20,1,
 #Аэродинамические параметры
 CL_take_off,,1.1,
 eta_prop,,0.7,
@@ -19,14 +19,14 @@ nRunc_s4,4,1,
 #Силовая установка
 mReg,5,0.025,
 nReg,5,1,
-mAT2308,6,0.058,
-nAT2308,6,1,
+mAT2814,6,0.210,
+nAT2814,6,1,
 m8X6_folding,,0.022,
 n8X6_folding,,0,
 m8X6_fix,21,0.011,
 n8X6_fix,21,1,
-mLiIon18650,7,0.047,
-nLiIon18650,7,3,
+mBat,7,0.520,
+nBat,7,1,
 capacity_LiIon18650,,,
 mLiIon21700,8,0.0068,
 nLiIon21700,8,0,

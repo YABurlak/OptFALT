@@ -149,4 +149,30 @@ def AR_selector(Sw: float, foil_name: str, v: float, ar_range: np.array, tom: fl
 
     return df.iloc[df.K.argmax()].AR    
 
+def XFoil_command_TE_gap(work_path, foil_name, gap, chord, blending_dist = 0.4):
+    '''Forms the text command file for XFoil.
+    '''
+    command_file=open(work_path + 'commands.in','w')
+    command_file.write('load ' + work_path + foil_name + '.dat'+'\n'\
+    + foil_name + '\n\
+    gdes\n\
+    tgap ' + str(gap / chord) + ' ' + str(blending_dist) + '\n\
+    exec\n\
+    \n\
+    psav ' + work_path + foil_name  + f'g_{gap / chord}' + '.dat' + '\n\
+    quit\n')
+    command_file.close()
+    return 0
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
