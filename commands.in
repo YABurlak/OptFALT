@@ -4,18 +4,17 @@ SD7037
     g f
     
     oper
-    visc 135650
+    visc 89324
     M 0.0
     type 1
     vpar
     n 9
     
-    iter
-1000
+    iter 1000
     pacc
 /home/crucian/Desktop/aerokittes/Yura_s/OptFALT/polar.dat
     
-    cl 0.26325000000000004
+    cl 0.6230769230769231
     
     
     quit

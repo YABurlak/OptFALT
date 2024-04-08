@@ -33,7 +33,7 @@ def XFoil_command_CL(RE: float, CL: float, M: float, ncr: int, xfoil_max_it: int
     vpar\n\
     n ' + str(ncr) + '\n\
     \n\
-    iter\n' + str(xfoil_max_it) + '\n\
+    iter ' + str(xfoil_max_it) + '\n\
     pacc\n'\
     + work_path + 'polar.dat\n\
     \n\
@@ -57,11 +57,12 @@ def XFoil_run(file_path: str, xfoil_path: str):
     :param xfoil_path: XFoil.exe path
     :return: 0
     '''
-    sep=os.path.sep
+    sep=os.path.sep 
     if os.path.exists(file_path):
-        os.system('del ' + file_path + 'polar.dat')
-    run_xfoil_command = xfoil_path + 'xfoil < ' + file_path + \
-    'commands.in'
+        print('del ' + file_path + 'polar.dat')
+        os.remove(file_path + 'polar.dat')
+    run_xfoil_command = xfoil_path + 'xfoil < ' + file_path + 'commands.in'
+    print(run_xfoil_command)
     os.system(run_xfoil_command)
     return 0
 
@@ -157,4 +158,30 @@ def AR_selector(Sw: float, foil_name: str, v: float, ar_range: np.array, tom: fl
 
     return df.iloc[df.K.argmax()].AR    
 
+def XFoil_command_TE_gap(work_path, foil_name, gap, chord, blending_dist = 0.4):
+    '''Forms the text command file for XFoil.
+    '''
+    command_file=open(work_path + 'commands.in','w')
+    command_file.write('load ' + work_path + foil_name + '.dat'+'\n'\
+    + foil_name + '\n\
+    gdes\n\
+    tgap ' + str(gap / chord) + ' ' + str(blending_dist) + '\n\
+    exec\n\
+    \n\
+    psav ' + work_path + foil_name  + f'g_{gap / chord}' + '.dat' + '\n\
+    quit\n')
+    command_file.close()
+    return 0
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     

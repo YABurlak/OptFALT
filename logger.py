@@ -5,6 +5,7 @@ from output_files.geometry import *
 from input_files.mass_dependencies import weigh
 
 
+
 def log_weigh(file_name):
     file = open("input_files/mass_dependencies.py", "r")
     mass_list_started = False

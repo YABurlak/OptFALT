@@ -1,0 +1,21 @@
+def map_range(number: float, in_min: float, in_max: float, out_min: float, out_max: float, constrained: bool = True) -> float:
+    """Maps a value from one range to another.
+    This function takes a value within an input range and maps it to the
+    equivalent value within an output range, maintaining the relative position
+    of the value within the range.
+    :param number:      The value to be mapped.
+    :type number:       float
+    :param in_min:      The minimum value of the input range.
+    :type in_min:       float
+    :param in_max:      The maximum value of the input range.
+    :type in_max:       float
+    :param out_min:     The minimum value of the output range.
+    :type out_min:      float
+    :param out_max:     The maximum value of the output range.
+    :type out_max:      float
+    :param constrained: If `True`, the mapped value is constrained to the output
+        range; default is `True`.
+    :type constrained:  bool
+    :return: The mapped value.
+    :rtype:  float
+    """

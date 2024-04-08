@@ -5,11 +5,7 @@ from output_files.geometry import *
 
 def weigh():
     M = 0
-    #Аэродинамические параметры
-
-    #Геометрические ограничения
-    M += l_stab * tube6X5
-
+    
     #Компоненты FPV-системы
     M += mVTX * nVTX
     M += mCrossfire * nCrossfire
@@ -18,6 +14,7 @@ def weigh():
     #Силовая установка
     M += mReg * nReg
     M += mAT2308 * nAT2308
+    M += mAT2312 * nAT2312
     M += mLiIon18650 * nLiIon18650
     M += mLiIon21700 * nLiIon21700
 
@@ -25,6 +22,8 @@ def weigh():
     M += specific_wing * wing_area
     M += specific_aft * Vtail_area
     M += mfus * nfus
+    M += tube8X7 * ltube8X7
+    M += tube8X6 * ltube8X6
 
     #Cервы+провода
     M += mMG90 * nMG90
@@ -34,4 +33,7 @@ def weigh():
     #Мозги+датчики
     M += mPixhawk * nPixhawk
     M += mPito * nPito
+
+    #Полезная нагрузка
+    M += mGoPRO11 * nGoPRO11
     return M

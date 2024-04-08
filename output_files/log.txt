@@ -1,10 +1,5 @@
-CL_cr = 0.26325 
+CL_cr = 0.6230769230769231 
 итерация 1 
-
-Аэродинамические параметры
-
-Геометрические ограничения
-l_stab * tube6X5 = 0.0078
 
 Компоненты FPV-системы
 mVTX * nVTX = 0.024
@@ -14,35 +9,36 @@ mRunc_s4 * nRunc_s4 = 0.01
 Силовая установка
 mReg * nReg = 0.05
 mAT2308 * nAT2308 = 0.058
+mAT2312 * nAT2312 = 0.13
 mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
 specific_wing * wing_area = 0.1603614964270702
-specific_aft * Vtail_area = 0.04293857256138728
-mfus * nfus = 0.15
+specific_aft * Vtail_area = 0.06269268202752085
+mfus * nfus = 0.25
+tube8X7 * ltube8X7 = 0.0
+tube8X6 * ltube8X6 = 0.0448
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.02656029489876358
+specific_3wire * wire_length = 0.02514082622066954
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
-mPito * nPito = 0.0
+mPito * nPito = 0.05
+
+Полезная нагрузка
+mGoPRO11 * nGoPRO11 = 0.154
 
 ====================
-M = 0.7476603638872211
+M = 1.2369950046752605
 
 
-CL_cr = 0.26325 
+CL_cr = 0.6230769230769232 
 итерация 2 
 
-Аэродинамические параметры
-
-Геометрические ограничения
-l_stab * tube6X5 = 0.0078
-
 Компоненты FPV-системы
 mVTX * nVTX = 0.024
 mCrossfire * nCrossfire = 0.005
@@ -51,35 +47,36 @@ mRunc_s4 * nRunc_s4 = 0.01
 Силовая установка
 mReg * nReg = 0.05
 mAT2308 * nAT2308 = 0.058
+mAT2312 * nAT2312 = 0.13
 mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
-specific_wing * wing_area = 0.11989593477216262
-specific_aft * Vtail_area = 0.0277590206161805
-mfus * nfus = 0.15
+specific_wing * wing_area = 0.19836637002253546
+specific_aft * Vtail_area = 0.08643846199846093
+mfus * nfus = 0.25
+tube8X7 * ltube8X7 = 0.0
+tube8X6 * ltube8X6 = 0.0448
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.024971522575544393
+specific_3wire * wire_length = 0.027615395220614132
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
-mPito * nPito = 0.0
+mPito * nPito = 0.05
+
+Полезная нагрузка
+mGoPRO11 * nGoPRO11 = 0.154
 
 ====================
-M = 0.6904264779638876
+M = 1.3012202272416105
 
 
-CL_cr = 0.26325000000000004 
+CL_cr = 0.6230769230769231 
 итерация 3 
 
-Аэродинамические параметры
-
-Геометрические ограничения
-l_stab * tube6X5 = 0.0078
-
 Компоненты FPV-системы
 mVTX * nVTX = 0.024
 mCrossfire * nCrossfire = 0.005
@@ -88,35 +85,36 @@ mRunc_s4 * nRunc_s4 = 0.01
 Силовая установка
 mReg * nReg = 0.05
 mAT2308 * nAT2308 = 0.058
+mAT2312 * nAT2312 = 0.13
 mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
-specific_wing * wing_area = 0.11071782317916061
-specific_aft * Vtail_area = 0.024633366034092656
-mfus * nfus = 0.15
+specific_wing * wing_area = 0.20866562282163698
+specific_aft * Vtail_area = 0.09335752587716664
+mfus * nfus = 0.25
+tube8X7 * ltube8X7 = 0.0
+tube8X6 * ltube8X6 = 0.0448
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.024575234756843922
+specific_3wire * wire_length = 0.028323220329392648
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
-mPito * nPito = 0.0
+mPito * nPito = 0.05
+
+Полезная нагрузка
+mGoPRO11 * nGoPRO11 = 0.154
 
 ====================
-M = 0.6777264239700973
+M = 1.3191463690281962
 
 
-CL_cr = 0.26325000000000004 
+CL_cr = 0.6230769230769231 
 итерация 4 
 
-Аэродинамические параметры
-
-Геометрические ограничения
-l_stab * tube6X5 = 0.0078
-
 Компоненты FPV-системы
 mVTX * nVTX = 0.024
 mCrossfire * nCrossfire = 0.005
@@ -125,25 +123,31 @@ mRunc_s4 * nRunc_s4 = 0.01
 Силовая установка
 mReg * nReg = 0.05
 mAT2308 * nAT2308 = 0.058
+mAT2312 * nAT2312 = 0.13
 mLiIon18650 * nLiIon18650 = 0.14100000000000001
 mLiIon21700 * nLiIon21700 = 0.0
 
 Конструкционные материалы
-specific_wing * wing_area = 0.10868122351601182
-specific_aft * Vtail_area = 0.023956823368772726
-mfus * nfus = 0.15
+specific_wing * wing_area = 0.2115402857436977
+specific_aft * Vtail_area = 0.0952933522130109
+mfus * nfus = 0.25
+tube8X7 * ltube8X7 = 0.0
+tube8X6 * ltube8X6 = 0.0448
 
 Cервы+провода
 mMG90 * nMG90 = 0.0
 mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.02448509696072373
+specific_3wire * wire_length = 0.028449826447910342
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
-mPito * nPito = 0.0
+mPito * nPito = 0.05
+
+Полезная нагрузка
+mGoPRO11 * nGoPRO11 = 0.154
 
 ====================
-M = 0.6749231438455084
+M = 1.324083464404619
 
 
 сошлось на итерации: 4 
