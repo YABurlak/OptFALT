@@ -4,7 +4,7 @@ eta_prop = 0.7
 #Геометрические ограничения		
 A_aft = 0.8
 B_keel = 0.05
-l_stab = 0.6
+l_stab = 0.4
 #компоненты FPV-системы		
 mVTX = 0.024
 nVTX = 1
@@ -17,6 +17,8 @@ mReg = 0.025
 nReg = 2
 mAT2308 = 0.058
 nAT2308 = 1
+mAT2312 = 0.13
+nAT2312 = 1
 m8X6_folding = 0.022
 n8X6_folding = 0
 m8X6_fix = 0.011
@@ -35,12 +37,12 @@ tube6X5 = 0.013
 tube8X6 = 0.032
 ltube10X9 = 0
 ltube5X4 = 0
-ltube8X7 = 0
+ltube8X7 = 0.0
 ltube6X5 = 0
-ltube8X6 = 0
+ltube8X6 = 1.4
 specific_wing = 1.05
 specific_aft = 1.05
-mfus = 0.15
+mfus = 0.25
 nfus = 1
 #Cервы+провода		
 mMG90 = 0.015
@@ -52,4 +54,7 @@ specific_3wire = 0.0095
 mPixhawk = 0.048
 nPixhawk = 1	
 mPito = 0.05
-nPito = 0
+nPito = 1
+#Полезная нагрузка
+mGoPRO11 = 0.154
+nGoPRO11 = 1

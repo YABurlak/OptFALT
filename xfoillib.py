@@ -33,7 +33,7 @@ def XFoil_command_CL(RE: float, CL: float, M: float, ncr: int, xfoil_max_it: int
     vpar\n\
     n ' + str(ncr) + '\n\
     \n\
-    iter\n' + str(xfoil_max_it) + '\n\
+    iter ' + str(xfoil_max_it) + '\n\
     pacc\n'\
     + work_path + 'polar.dat\n\
     \n\
@@ -57,11 +57,13 @@ def XFoil_run(file_path: str, xfoil_path: str):
     :param xfoil_path: XFoil.exe path
     :return: 0
     '''
-    sep=os.path.sep
+    sep=os.path.sep 
     if os.path.exists(file_path):
+        print('del ' + file_path + 'polar.dat')
         os.system('del ' + file_path + 'polar.dat')
     run_xfoil_command = xfoil_path + 'xfoil < ' + file_path + \
     'commands.in'
+    print(run_xfoil_command)
     os.system(run_xfoil_command)
     return 0
 

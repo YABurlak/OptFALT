@@ -1,9 +1,20 @@
-load D:\YURA\Aerokitties\OptFALT\FX63-137.dat
-FX63-137
-    gdes
-    tgap 0.004 0.4
-    gset
+load D:/YURA/Aerokitties/OptFALT/SD7037.dat
+SD7037
+    plop
+    g f
     
-    psav D:\YURA\Aerokitties\OptFALT\FX63-137g_0.004.dat
+    oper
+    visc 87022
+    M 0.0
+    type 1
+    vpar
+    n 9
+    
+    iter 1000
+    pacc
+D:/YURA/Aerokitties/OptFALT/polar.dat
+    
+    cl 0.6230769230769231
+    
+    
     quit
-

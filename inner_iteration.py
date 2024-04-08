@@ -4,11 +4,18 @@ from handlers import import_py_module
 
 # Все единицы в СИ
 def inner_iteration():
-    performance_file_name = "input_files/performance.py"#input("имя файла performances: ")
-    params_file_name = "input_files/params.py" #input("имя файла params: ")
-    settings_file_name = "input_files/settings.py" #input("имя файла settings: ") 
-    tom = 1 #input("нулевое приближение влётной массы: ")
-    max_iter = 5 #input("максимальное число итераций: ")
+    user = False
+    if (user == True):
+        performance_file_name = input("имя файла performances: ")
+        params_file_name = input("имя файла performances: ")
+        tom = input("нулевое приближение влётной массы: ")
+        max_iter = input("максимальное число итераций: ")
+    else:
+        performance_file_name = "input_files/performance.py"#input("имя файла performances: ")
+        params_file_name = "input_files/params.py" #input("имя файла params: ")
+        settings_file_name = "input_files/settings.py" #input("имя файла settings: ") 
+        tom = 1 #input("нулевое приближение влётной массы: ")
+        max_iter = 5 #input("максимальное число итераций: ")
     
     tom_eps = import_py_module(settings_file_name).tom_eps
     
