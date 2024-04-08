@@ -61,7 +61,7 @@ class Sculptor():
         aero_file_name = "output_files/aero.py"
         if unic_name:
             pass
-        self.aero_variables = ["AR", "V", "alpha", "CL", "CDi", "K", "CD"]
+        self.aero_variables = ["AR", "V", "alpha", "CL", "CD", "CDi", "K"]
         file = open(aero_file_name, "w")
         for var in self.aero_variables:
             file.write(var+" = 0\n")
@@ -72,6 +72,7 @@ class Sculptor():
         self.geometry.wing_area = wing_area(self.tom, float(self.settings.g), float(self.settings.density), float(self.performance.take_off_speed), float(self.params.CL_take_off))
         
         CL_cr = CL_cruise(self.tom, self.performance.cruise_speed, float(self.geometry.wing_area), float(self.settings.g), float(self.settings.density))
+        self.log(f"CL_cr = {CL_cr}")
         ar_step_number = int(abs(float(self.settings.ar_max) - float(self.settings.ar_min)) // float(self.settings.ar_delta))
         ar_range = np.linspace(float(self.settings.ar_min), float(self.settings.ar_max), ar_step_number)
         
@@ -79,15 +80,14 @@ class Sculptor():
                                       int(self.settings.xfoil_max_it), self.settings.M, self.settings.dyn_viscosity, self.settings.ncr, 
                                          self.settings.osvald_coef, self.settings.work_dir, self.settings.XFoil_path)
                                        
-        self.aero.AR, self.aero.V, self.aero.alpha, self.aero.CL, self.aero.CDi, self.aero.K, self.aero.CD = K_V_solver(self.geometry.wing_area, self.settings.foil1_name, self.performance.cruise_speed, self.geometry.AR, self.tom, self.settings.xfoil_max_it, self.settings.M, self.settings.dyn_viscosity, self.settings.ncr, self.settings.osvald_coef, self.settings.work_dir, self.settings.XFoil_path).values.tolist()[0]
-        
+        self.aero.AR, self.aero.V, self.aero.alpha, self.aero.CL, self.aero.CD, self.aero.CDi, self.aero.K = K_V_solver(self.geometry.wing_area, self.settings.foil1_name, self.performance.cruise_speed, self.geometry.AR, self.tom, self.settings.xfoil_max_it, self.settings.M, self.settings.dyn_viscosity, self.settings.ncr, self.settings.osvald_coef, self.settings.work_dir, self.settings.XFoil_path).values.tolist()[0]
         self.geometry.ba = ba(self.geometry.AR, self.geometry.wing_area)
         self.geometry.wingspan = wingspan(self.geometry.AR, self.geometry.wing_area)
         self.geometry.aft_area = aft_area(float(self.params.A_aft), self.geometry.wing_area, self.geometry.ba, float(self.params.l_stab))
         self.geometry.keel_area = keel_area(float(self.params.B_keel), self.geometry.wing_area, self.geometry.wingspan, float(self.params.l_stab))
         self.geometry.V_dihedral = gamma(self.geometry.keel_area, self.geometry.aft_area)
         self.geometry.Vtail_area = stab_area(self.geometry.aft_area, self.geometry.V_dihedral)
-        self.geometry.P_cruise = P_cruise(self.tom, self.aero.AR, float(self.params.eta_prop), float(self.settings.g))
+        self.geometry.P_cruise = P_cruise(self.tom, self.aero.AR, float(self.params.eta_prop), float(self.settings.g)) 
         self.geometry.wire_length = wire_length(self.geometry.wingspan, float(self.params.l_stab), float(self.settings.wire_scale_coef))
         self.geometry.V_dihedral = math.degrees(gamma(self.geometry.keel_area, self.geometry.aft_area))
         
@@ -115,6 +115,8 @@ class Sculptor():
     def weigh(self, log=False):
         reload(md)
         reload(logger)
+        reload(self.geometry)
+        reload(self.aero)
         
         if self.log_flag:
             logger.log_weigh(self.log_file_name)

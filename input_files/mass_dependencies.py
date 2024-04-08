@@ -22,7 +22,7 @@ def weigh():
     M += mLiIon21700 * nLiIon21700
 
     #Конструкционные материалы
-    M += specific_wing * wing_area * AR
+    M += specific_wing * wing_area
     M += specific_aft * Vtail_area
     M += mfus * nfus
 

@@ -122,7 +122,7 @@ def K_V_solver(Sw: float, foil_name: str, v: float, ar: float, tom: float,
 
     return POLAR
     #print(polar)
-    #return [ar, v, polar[0][0], polar[0][1], polar[0][2], POLAR.CL / (POLAR.CD + POLAR.CDi), CDi(POLAR.CL, ar, osvald_coef = float(settings.osvald_coef))]
+    #return [ar, v, polar[0][0], polar[0][1], polar[0][2], CDi(POLAR.CL, ar, osvald_coef = float(settings.osvald_coef)), POLAR.CL / (POLAR.CD + POLAR.CDi)]
 
 def AR_selector(Sw: float, foil_name: str, v: float, ar_range: np.array, tom: float, xfoil_max_it: int, 
                 M: float, nu: float, ncr: int, Osvald_c: float, work_path: str, XFoil_path: str):
