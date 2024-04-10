@@ -84,7 +84,8 @@ class Sculptor():
         self.geometry.ba = ba(self.geometry.AR, self.geometry.wing_area)
         self.geometry.wingspan = wingspan(self.geometry.AR, self.geometry.wing_area)
         self.geometry.aft_area = aft_area(float(self.params.A_aft), self.geometry.wing_area, self.geometry.ba, float(self.params.l_stab))
-        self.geometry.keel_area = keel_area(float(self.params.B_keel), self.geometry.wing_area, self.geometry.wingspan, float(self.params.l_stab))
+        self.geometry.keel_area = keel_area(float(self.params.B_keel), self.geometry.wing_area, 
+                                            self.geometry.wingspan, float(self.params.l_stab))
         self.geometry.V_dihedral = gamma(self.geometry.keel_area, self.geometry.aft_area)
         self.geometry.Vtail_area = stab_area(self.geometry.aft_area, self.geometry.V_dihedral)
         self.geometry.P_cruise = P_cruise(self.tom, self.aero.AR, float(self.params.eta_prop), float(self.settings.g)) 

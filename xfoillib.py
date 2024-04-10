@@ -59,10 +59,8 @@ def XFoil_run(file_path: str, xfoil_path: str):
     '''
     sep=os.path.sep 
     if os.path.exists(file_path):
-        print('del ' + file_path + 'polar.dat')
         os.remove(file_path + 'polar.dat')
     run_xfoil_command = xfoil_path + 'xfoil < ' + file_path + 'commands.in'
-    print(run_xfoil_command)
     os.system(run_xfoil_command)
     return 0
 

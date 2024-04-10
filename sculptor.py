@@ -134,6 +134,7 @@ class Sculptor():
         self.geom["aft_area"] = aft_area(float(self.params["A_aft"]), 
                                          self.geom["wing_area"], self.geom["ba"], 
                                          float(self.params["l_stab"]))
+        self.geom["foil1_area"] = calc_foil_area(self.settings)
         self.geom["keel_area"] = keel_area(float(self.params["B_keel"]), 
                                            self.geom["wing_area"], self.geom["wingspan"], 
                                            float(self.params["l_stab"]))
