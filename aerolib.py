@@ -121,26 +121,27 @@ def calc_foil_area(filename):
             x_, y_ = list(map(lambda x: float(x), dots[i-1].split()))
             x, y = list(map(lambda x: float(x), dots[i].split()))
         except Exception:
-            print(f"\tWARN! calc_perimeter: ошибка парсинга строк {i}, {i-1}")
+            print(f"\tWARN! calc_foil_area: ошибка парсинга строк {i}, {i-1}")
             raise ValueError
         S += x_ * (y-y_)
     return S
 
 def calc_foil_perimeter(filename):
+
     '''Calculates foil area using geometry file.
     '''
+
     f = open(filename, 'r')
     dots = f.read().split("\n")[1:]
-    if dots[-1].split() == []:
+    while dots[-1].split() == []:
         dots = dots[:-1]
-    S = 0
+    P = 0
     for i in range(0, len(dots)):
-        i = i%len(dots)
-        try: 
-            x_, y_ = list(map(lambda x: float(x), dots[i-1].split()))
-            x, y = list(map(lambda x: float(x), dots[i].split()))
-        except Exception:
+        if len(dots[i].split()) < 2 or len(dots[i-1].split()) < 2:
             print(f"\tWARN! calc_perimeter: ошибка парсинга строк {i}, {i-1}")
             raise ValueError
-        S += x_ * (y-y_)
-    return S
+        x_, y_ = list(map(lambda x: float(x), dots[i-1].split()))
+        x, y = list(map(lambda x: float(x), dots[i].split()))
+        P += ((x-x_)**2 + (y-y_)**2)**0.5
+    return P
+
