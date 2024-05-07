@@ -1,20 +1,20 @@
-load /home/crucian/Desktop/aerokittes/Yura_s/OptFALT/SD7037.dat
-SD7037
+load D:/YURA/Aerokitties/OptFALT/FX63-137_f70_m5.dat
+FX63-137_f70_m5
     plop
     g f
     
     oper
-    visc 89324
+    visc 217044
     M 0.0
     type 1
     vpar
     n 9
     
-    iter 1000
+    iter 700
     pacc
-/home/crucian/Desktop/aerokittes/Yura_s/OptFALT/polar.dat
+D:/YURA/Aerokitties/OptFALT/polar.dat
     
-    cl 0.6230769230769231
+    cl 0.37647058823529406
     
     
     quit

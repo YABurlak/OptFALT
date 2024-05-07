@@ -1,5 +1,5 @@
-CL_cr = 0.6230769230769231 
-итерация 1 
+CL_cr = 0.3764705882352941 
+�������� 1 
 
 Компоненты FPV-системы
 mVTX * nVTX = 0.024
@@ -7,37 +7,50 @@ mCrossfire * nCrossfire = 0.005
 mRunc_s4 * nRunc_s4 = 0.01
 
 Силовая установка
-mReg * nReg = 0.05
-mAT2308 * nAT2308 = 0.058
-mAT2312 * nAT2312 = 0.13
-mLiIon18650 * nLiIon18650 = 0.14100000000000001
-mLiIon21700 * nLiIon21700 = 0.0
+mReg * nReg = 0.025
+
+ M += mAT2308 * nAT2308
+
+ M += mAT2312 * nAT2312
+mAT2814 * nAT2814 = 0.132
+
+ M += mLiIon18650 * nLiIon18650
+
+ M += mLiIon21700 * nLiIon21700
+mKIT * nKIT = 0.5
 
 Конструкционные материалы
-specific_wing * wing_area = 0.1603614964270702
-specific_aft * Vtail_area = 0.06269268202752085
-mfus * nfus = 0.25
+specific_wing * wing_area = 0.1552028085824494
+specific_glass * wing_area * 2 = 0.020693707810993254
+(specific_aft + specific_glass * 2) * aft_area * 1.2 = 0.016733044431648934
+specific_petg * spar_thickness * keel_area * 1.4 = 0.011339098344270339
+mfus * nfus = 0.33
 tube8X7 * ltube8X7 = 0.0
-tube8X6 * ltube8X6 = 0.0448
+tube8X6 * ltube8X6 = 0.128
+tube10X9 * ltube10X9 = 0.025759999999999998
+spar1_hight * spar_thickness * wingspan * specific_lwpla = 0.014064026619160504
+spar2_hight * spar_thickness * wingspan * specific_lwpla = 0.010228382995753094
+spar3_hight * spar_thickness * wingspan * specific_lwpla = 0.01534257449362964
+spar4_hight * spar_thickness * wingspan * specific_lwpla = 0.01534257449362964
 
 Cервы+провода
-mMG90 * nMG90 = 0.0
-mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.02514082622066954
+mMG90 * nMG90 = 0.105
+mES9051 * nES9051 = 0.0
+specific_3wire * wire_length = 0.029942296674434165
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.05
 
 Полезная нагрузка
-mGoPRO11 * nGoPRO11 = 0.154
+mCargo * nCargo = 0.8
 
 ====================
-M = 1.2369950046752605
+M = 2.4716485144459694
 
 
-CL_cr = 0.6230769230769232 
-итерация 2 
+CL_cr = 0.37647058823529417 
+�������� 2 
 
 Компоненты FPV-системы
 mVTX * nVTX = 0.024
@@ -45,37 +58,50 @@ mCrossfire * nCrossfire = 0.005
 mRunc_s4 * nRunc_s4 = 0.01
 
 Силовая установка
-mReg * nReg = 0.05
-mAT2308 * nAT2308 = 0.058
-mAT2312 * nAT2312 = 0.13
-mLiIon18650 * nLiIon18650 = 0.14100000000000001
-mLiIon21700 * nLiIon21700 = 0.0
+mReg * nReg = 0.025
+
+ M += mAT2308 * nAT2308
+
+ M += mAT2312 * nAT2312
+mAT2814 * nAT2814 = 0.132
+
+ M += mLiIon18650 * nLiIon18650
+
+ M += mLiIon21700 * nLiIon21700
+mKIT * nKIT = 0.5
 
 Конструкционные материалы
-specific_wing * wing_area = 0.19836637002253546
-specific_aft * Vtail_area = 0.08643846199846093
-mfus * nfus = 0.25
+specific_wing * wing_area = 0.3836067912706532
+specific_glass * wing_area * 2 = 0.05114757216942043
+(specific_aft + specific_glass * 2) * aft_area * 1.2 = 0.06502120757069078
+specific_petg * spar_thickness * keel_area * 1.4 = 0.0440614300714328
+mfus * nfus = 0.33
 tube8X7 * ltube8X7 = 0.0
-tube8X6 * ltube8X6 = 0.0448
+tube8X6 * ltube8X6 = 0.128
+tube10X9 * ltube10X9 = 0.025759999999999998
+spar1_hight * spar_thickness * wingspan * specific_lwpla = 0.02211072765593057
+spar2_hight * spar_thickness * wingspan * specific_lwpla = 0.01608052920431314
+spar3_hight * spar_thickness * wingspan * specific_lwpla = 0.024120793806469712
+spar4_hight * spar_thickness * wingspan * specific_lwpla = 0.024120793806469712
 
 Cервы+провода
-mMG90 * nMG90 = 0.0
-mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.027615395220614132
+mMG90 * nMG90 = 0.105
+mES9051 * nES9051 = 0.0
+specific_3wire * wire_length = 0.03718127961471026
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.05
 
 Полезная нагрузка
-mGoPRO11 * nGoPRO11 = 0.154
+mCargo * nCargo = 0.8
 
 ====================
-M = 1.3012202272416105
+M = 2.85021112517009
 
 
-CL_cr = 0.6230769230769231 
-итерация 3 
+CL_cr = 0.37647058823529417 
+�������� 3 
 
 Компоненты FPV-системы
 mVTX * nVTX = 0.024
@@ -83,37 +109,50 @@ mCrossfire * nCrossfire = 0.005
 mRunc_s4 * nRunc_s4 = 0.01
 
 Силовая установка
-mReg * nReg = 0.05
-mAT2308 * nAT2308 = 0.058
-mAT2312 * nAT2312 = 0.13
-mLiIon18650 * nLiIon18650 = 0.14100000000000001
-mLiIon21700 * nLiIon21700 = 0.0
+mReg * nReg = 0.025
+
+ M += mAT2308 * nAT2308
+
+ M += mAT2312 * nAT2312
+mAT2814 * nAT2814 = 0.132
+
+ M += mLiIon18650 * nLiIon18650
+
+ M += mLiIon21700 * nLiIon21700
+mKIT * nKIT = 0.5
 
 Конструкционные материалы
-specific_wing * wing_area = 0.20866562282163698
-specific_aft * Vtail_area = 0.09335752587716664
-mfus * nfus = 0.25
+specific_wing * wing_area = 0.4423607716793412
+specific_glass * wing_area * 2 = 0.058981436223912165
+(specific_aft + specific_glass * 2) * aft_area * 1.2 = 0.08051754239671596
+specific_petg * spar_thickness * keel_area * 1.4 = 0.054562475788833414
+mfus * nfus = 0.33
 tube8X7 * ltube8X7 = 0.0
-tube8X6 * ltube8X6 = 0.0448
+tube8X6 * ltube8X6 = 0.128
+tube10X9 * ltube10X9 = 0.025759999999999998
+spar1_hight * spar_thickness * wingspan * specific_lwpla = 0.023743689001799774
+spar2_hight * spar_thickness * wingspan * specific_lwpla = 0.017268137455854378
+spar3_hight * spar_thickness * wingspan * specific_lwpla = 0.025902206183781567
+spar4_hight * spar_thickness * wingspan * specific_lwpla = 0.025902206183781567
 
 Cервы+провода
-mMG90 * nMG90 = 0.0
-mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.028323220329392648
+mMG90 * nMG90 = 0.105
+mES9051 * nES9051 = 0.0
+specific_3wire * wire_length = 0.0386503262800282
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.05
 
 Полезная нагрузка
-mGoPRO11 * nGoPRO11 = 0.154
+mCargo * nCargo = 0.8
 
 ====================
-M = 1.3191463690281962
+M = 2.950648791194048
 
 
-CL_cr = 0.6230769230769231 
-итерация 4 
+CL_cr = 0.3764705882352941 
+�������� 4 
 
 Компоненты FPV-системы
 mVTX * nVTX = 0.024
@@ -121,34 +160,98 @@ mCrossfire * nCrossfire = 0.005
 mRunc_s4 * nRunc_s4 = 0.01
 
 Силовая установка
-mReg * nReg = 0.05
-mAT2308 * nAT2308 = 0.058
-mAT2312 * nAT2312 = 0.13
-mLiIon18650 * nLiIon18650 = 0.14100000000000001
-mLiIon21700 * nLiIon21700 = 0.0
+mReg * nReg = 0.025
+
+ M += mAT2308 * nAT2308
+
+ M += mAT2312 * nAT2312
+mAT2814 * nAT2814 = 0.132
+
+ M += mLiIon18650 * nLiIon18650
+
+ M += mLiIon21700 * nLiIon21700
+mKIT * nKIT = 0.5
 
 Конструкционные материалы
-specific_wing * wing_area = 0.2115402857436977
-specific_aft * Vtail_area = 0.0952933522130109
-mfus * nfus = 0.25
+specific_wing * wing_area = 0.45794897953372554
+specific_glass * wing_area * 2 = 0.061059863937830076
+(specific_aft + specific_glass * 2) * aft_area * 1.2 = 0.08481081634680483
+specific_petg * spar_thickness * keel_area * 1.4 = 0.057471800253834825
+mfus * nfus = 0.33
 tube8X7 * ltube8X7 = 0.0
-tube8X6 * ltube8X6 = 0.0448
+tube8X6 * ltube8X6 = 0.128
+tube10X9 * ltube10X9 = 0.025759999999999998
+spar1_hight * spar_thickness * wingspan * specific_lwpla = 0.024158415114556336
+spar2_hight * spar_thickness * wingspan * specific_lwpla = 0.01756975644695006
+spar3_hight * spar_thickness * wingspan * specific_lwpla = 0.02635463467042509
+spar4_hight * spar_thickness * wingspan * specific_lwpla = 0.02635463467042509
 
 Cервы+провода
-mMG90 * nMG90 = 0.0
-mES9051 * nES9051 = 0.024
-specific_3wire * wire_length = 0.028449826447910342
+mMG90 * nMG90 = 0.105
+mES9051 * nES9051 = 0.0
+specific_3wire * wire_length = 0.03902342268828457
 
 Мозги+датчики
 mPixhawk * nPixhawk = 0.048
 mPito * nPito = 0.05
 
 Полезная нагрузка
-mGoPRO11 * nGoPRO11 = 0.154
+mCargo * nCargo = 0.8
 
 ====================
-M = 1.324083464404619
+M = 2.977512323662837
 
 
-сошлось на итерации: 4 
-информация сохранена в файл с геометрией 
+CL_cr = 0.37647058823529406 
+�������� 5 
+
+Компоненты FPV-системы
+mVTX * nVTX = 0.024
+mCrossfire * nCrossfire = 0.005
+mRunc_s4 * nRunc_s4 = 0.01
+
+Силовая установка
+mReg * nReg = 0.025
+
+ M += mAT2308 * nAT2308
+
+ M += mAT2312 * nAT2312
+mAT2814 * nAT2814 = 0.132
+
+ M += mLiIon18650 * nLiIon18650
+
+ M += mLiIon21700 * nLiIon21700
+mKIT * nKIT = 0.5
+
+Конструкционные материалы
+specific_wing * wing_area = 0.4621182752213274
+specific_glass * wing_area * 2 = 0.061615770029510325
+(specific_aft + specific_glass * 2) * aft_area * 1.2 = 0.08597166064744406
+specific_petg * spar_thickness * keel_area * 1.4 = 0.05825844297991504
+mfus * nfus = 0.33
+tube8X7 * ltube8X7 = 0.0
+tube8X6 * ltube8X6 = 0.128
+tube10X9 * ltube10X9 = 0.025759999999999998
+spar1_hight * spar_thickness * wingspan * specific_lwpla = 0.024268138428982157
+spar2_hight * spar_thickness * wingspan * specific_lwpla = 0.017649555221077928
+spar3_hight * spar_thickness * wingspan * specific_lwpla = 0.026474332831616893
+spar4_hight * spar_thickness * wingspan * specific_lwpla = 0.026474332831616893
+
+Cервы+провода
+mMG90 * nMG90 = 0.105
+mES9051 * nES9051 = 0.0
+specific_3wire * wire_length = 0.03912213210940629
+
+Мозги+датчики
+mPixhawk * nPixhawk = 0.048
+mPito * nPito = 0.05
+
+Полезная нагрузка
+mCargo * nCargo = 0.8
+
+====================
+M = 2.9847126403008977
+
+
+������� �� ��������: 5 
+���������� ��������� � ���� � ���������� 
